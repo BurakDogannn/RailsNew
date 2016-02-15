@@ -46,3 +46,6 @@ group :development do
 end
   # devise for author
  gem 'devise'
+ # Easy upload management for ActiveRecord
+ gem 'paperclip', '~> 4.3.1'
+ 

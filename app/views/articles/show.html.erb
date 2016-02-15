@@ -3,7 +3,13 @@
   <%= @article.title %>
 </p>
  
+
 <p>
   <strong>Text:</strong>
   <%= @article.text %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @article.image.url(:medium) %>
 </p>
