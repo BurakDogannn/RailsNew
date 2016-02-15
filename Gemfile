@@ -48,4 +48,5 @@ end
  gem 'devise'
  # Easy upload management for ActiveRecord
  gem 'paperclip', '~> 4.3.1'
- 
+ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+
