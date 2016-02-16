@@ -5,6 +5,7 @@ class HomeController < ApplicationController
   	@politika = Article.where(category:'Politika').last
     @dunya = Article.where(category:'Dünya').last
     @ekonomi = Article.where(category:'Ekonomi').last
+    @articles =Article.all
 
   end
 
