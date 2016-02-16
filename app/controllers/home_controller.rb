@@ -2,6 +2,9 @@ class HomeController < ApplicationController
   
 
   def home
+  	@politika = Article.where(category:'Politika').last
+    @dunya = Article.where(category:'Dünya').last
+    @ekonomi = Article.where(category:'Ekonomi').last
 
   end
 
