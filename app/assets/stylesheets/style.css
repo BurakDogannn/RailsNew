@@ -23,7 +23,6 @@ body {
 
 
 img.demo{
-	width: 100%;
 	padding: 3px;
 	border: 1px solid #ccc;
 }
@@ -38,6 +37,9 @@ img.demo{
 color:rgb(0,0,0);
 
 }
+
+
+
 
 footer{
 	background:#333;

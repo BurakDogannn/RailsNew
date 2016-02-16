@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/medya' =>'home#medya'
   get '/ozelhaber' =>'home#ozelhaber'
   get '/cevre' =>'home#cevre' 
-
+ 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

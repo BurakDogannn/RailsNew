@@ -1,19 +1,36 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
- 
+<div class="container">
 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
-<p>
-  <strong>Kategory:</strong>
-  <%= @article.category %>
-</p>
+	<div class="row">
+		<%=render'shared/navbar' %>
+		<div class="col-sm-6">
+			<div class="row">
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @article.image.url(:medium) %>
-</p>
+			
+					<h1><strong><%= @article.category %> </strong></h1>
+
+				<br>
+				
+				<%= image_tag @article.image.url(:large) , class: "demo" %>
+				<br>
+				<br>
+                <br>
+
+				<p>
+
+					<strong><%= @article.title %></strong>
+				</p>
+
+
+				<p>
+					<%= @article.text %>
+				</p>
+
+
+
+			</div>
+
+		</div>
+
+	</div>
+</div>
+<%=render'shared/footer' %>

@@ -51,24 +51,38 @@
 			<div class="row">
 				<div class="col-md-4">
 					<h1><%= @politika.category %></h1>
+					
+					<%= link_to article_path(@politika) do %>
 					<%= image_tag @politika.image.url(:large) , class: "demo" %>
+					<% end %>
+					
 					<h2><%= @politika.title %></h2>
 					<p><%= @politika.text %></p>
-					<a href="#" class="btn btn-default">Read More</a>
+					<%= link_to 'Read More',article_path(@politika), class: "btn btn-default" %>
+
 				</div>
 				<div class="col-md-4">
 					<h1><%= @dunya.category %></h1>
+					
+					<%= link_to article_path(@dunya) do %>
 					<%= image_tag @dunya.image.url(:large) , class: "demo" %>
+					<% end %>
+
 					<h2><%= @dunya.title %></h2>
 					<p><%= @dunya.text %></p>
-					<a href="#" class="btn btn-default">Read More</a>
+					<%= link_to 'Read More',article_path(@dunya), class: "btn btn-default"%>
+				
 				</div>
 				<div class="col-md-4">
 					<h1><%= @ekonomi.category %></h1>
+					
+					<%= link_to article_path(@ekonomi) do %>
 					<%= image_tag @ekonomi.image.url(:large) , class: "demo" %>
+					<% end %>
+					
 					<h2><%= @ekonomi.title %></h2>
 					<p><%= @ekonomi.text %></p>
-					<a href="#" class="btn btn-default">Read More</a>
+					<%= link_to 'Read More',article_path(@ekonomi), class: "btn btn-default" %>
 				</div>
 
 			</div> 
@@ -77,7 +91,7 @@
 
 	</section>
 	
-
+<%=render'shared/footer' %>
 
 
 
