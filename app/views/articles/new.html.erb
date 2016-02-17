@@ -1,14 +1,14 @@
 <div class="container">
 
 <div class="row">
-<div class="coll-md-3">dfdv</div>
-<div class="coll-md-3">vdfvdf</div>
+
 
 
 
 
 <%= form_for @article, html: { multipart: true } do |f| %>
   
+  <%= f.hidden_field :category_id, value: params[:category_id] %>
   
   <p>
     <%= f.label :title %><br>

@@ -1,0 +1,30 @@
+	<div class="container">
+
+		<div class="row">
+
+			<div class="col-md-12">
+				<div class="row">
+					<div class="panel panel-default">
+						<table class="table ">
+							
+							<% @categories.each do |category| %>
+							<tr><td><%= category.name %></td>
+							<td><%= link_to "Add Article", new_category_article_path(category) %></td>	
+							
+						</tr>
+						
+						<% end %>
+					</table>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+    <%= link_to "Kategori Ekle", new_category_path %>
+	<% if author_signed_in? %>
+    <p><%= link_to "Sign_out",destroy_author_session_path, :method => 'delete'%></p>
+    <br>
+    <%end%>
+
+</div>

@@ -3,13 +3,9 @@
 		<div class="row">
 			<div clas="col-md-6 col-xs-12">
 				<ul>
-					<li><%= link_to 'Gündem',gundem_path%></li>					
-					<li><%= link_to 'Politika',politika_path%></li>
-					<li><%= link_to 'Dünya',dunya_path%></li>
-					<li><%= link_to 'Ekonomi',ekonomi_path%></li>
-					<li><%= link_to 'Medya',medya_path%></li>
-					<li><%= link_to 'Özel Haber',ozelhaber_path%></li>
-					<li><%= link_to 'Çevre',cevre_path%></li>
+					<% @categories.each do |category| %>
+					<li><%= link_to category.name ,category_articles_path(category)%></li>					
+					<%end %>
 				</ul>
 			</div>
 			<div clas="col-md-6  col-xs-12">

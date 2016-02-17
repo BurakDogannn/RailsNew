@@ -1,32 +1,37 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_author!
-  
+  before_action :authenticate_author!, only: [:edit, :update, :destroy, :new]
 
   def index
- 
+  	@categories =Category.all #navbar için eklendi
+  	@articles = Article.where(category_id: params[:category_id])
+    
+   
   end
 
 
   def new 
    @article = Article.new
+   #@category = Category.find(params[:category_id])
   end
 
 
   def create
   @article = Article.new(article_params)
- 
+
   @article.save
-  redirect_to new_article_path
+  redirect_to categories_path
   end
 
 
    def show
+   	@categories =Category.all
     @article = Article.find(params[:id])
+    @category =Category.find(params[:category_id])
    end
 
   private
   def article_params
-    params.require(:article).permit(:title,:category, :text, :image)
+    params.require(:article).permit(:category_id,:title,:category, :text, :image)
   end
 
 end
