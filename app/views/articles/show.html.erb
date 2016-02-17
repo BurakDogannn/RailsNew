@@ -19,12 +19,19 @@
 
 					<strong><%= @article.title %></strong>
 				</p>
+ <p>
+ 	       <button> Etiketler</button>
+         <% @article.labels.each do |label| %>
 
+         <a href="#"><%= label.name %></a>,
+         
+         <% end %>
+         </p>
 
 				<p>
 					<%= @article.text %>
 				</p>
-
+        
 
 
 			</div>

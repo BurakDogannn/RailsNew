@@ -3,9 +3,6 @@
 <div class="row">
 
 
-
-
-
 <%= form_for @article, html: { multipart: true } do |f| %>
   
   <%= f.hidden_field :category_id, value: params[:category_id] %>
@@ -19,17 +16,22 @@
     <%= f.label :text %><br>
     <%= f.text_area :text %>
   </p>
-   <p> 
-	     <%= f.label :category %>
-				<%=f.select :category, [['Gündem'],['Politika'],['Dünya'],['Ekonomi'],['Medya'],['Özel Haber'],['Çevre']] %>
-
-   </p>
    <p>
     <%= f.label :image %><br>
     <%= f.file_field :image %>
   </p>
  
-
+<div class="col-md-6">
+			<h3>Etiket Ekleyin</h3>
+			<div id="labels">
+				<%= f.fields_for :labels do |label| %>
+				<%= render 'labels', f: label %>
+				<% end %>
+				<div class="links">
+					<%= link_to_add_association 'Etiket Ekle', f, :labels, class: "btn btn-default add-button" %>
+				</div>
+			</div>
+		</div>
   <p>
     <%= f.submit %>
   </p>

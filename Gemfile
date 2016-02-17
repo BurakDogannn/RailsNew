@@ -49,4 +49,5 @@ end
  # Easy upload management for ActiveRecord
  gem 'paperclip', '~> 4.3.1'
  gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+ gem 'cocoon', '~> 1.2', '>= 1.2.7'
 
