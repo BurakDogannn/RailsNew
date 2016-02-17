@@ -4,10 +4,7 @@
 		<%=render'shared/navbar' %>
 		<div class="col-sm-6">
 			<div class="row">
-
-			
 					<h1><strong><%= @category.name %> </strong></h1>
-
 				<br>
 				
 				<%= image_tag @article.image.url(:large) , class: "demo" %>
@@ -26,11 +23,14 @@
 				</p>
 
 
-
 			</div>
 
 		</div>
 
 	</div>
+	<% if author_signed_in? %>
+    <p><%= link_to "Yazıyı Sil",category_article_path(@category,@article), :method => 'delete'%></p>
+    <br>
+    <%end%>
 </div>
 <%=render'shared/footer' %>

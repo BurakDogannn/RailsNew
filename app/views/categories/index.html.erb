@@ -9,12 +9,21 @@
 							
 							<% @categories.each do |category| %>
 							<tr><td><%= category.name %></td>
-							<td><%= link_to "Add Article", new_category_article_path(category) %></td>	
-							
-						</tr>
+							<td><%= link_to "Yazı Ekle", new_category_article_path(category) %>
+							</td>
+							<td><%= link_to "", new_category_article_path(category) %>
+							</td>
+
+
+							<td>
+							    <%= link_to "Kategori Sil", category_path(category), 
+							    :method => 'delete',
+							    data: {confirm: 'Bu kategori ve bu kategorilere ayit yazilari silmek istedinize emin misiniz' } %>
+							</td>		
+						    </tr>
 						
 						<% end %>
-					</table>
+					   </table>
 				</div>
 			</div>
 

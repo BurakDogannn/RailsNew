@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
  
     @category.save
     redirect_to categories_path
-     end
+    end
 
 	
 	def index
@@ -19,6 +19,15 @@ class CategoriesController < ApplicationController
 
 	end
 
+	def destroy
+      @category = Category.find(params[:id])
+
+      @category.destroy
+
+      redirect_to categories_path , notice:"Deleted was successfully"
+    end
+
+	
 	private
     
     def category_params

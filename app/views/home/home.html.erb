@@ -81,18 +81,18 @@
                <% if category.articles.any? %>
 				  <div class="col-md-4">
 				  <h1><%= category.name %></h1>					
-				  <%= link_to category_article_path(category,category.articles.last.category_id) do %>
+				  <%= link_to category_article_path(category.articles.last.category_id,category.articles.last.id) do %>
 					<%= image_tag category.articles.last.image.url(:large) , class: "demo" %>
-					<% end %>
+			      <% end %>
 		
 
                                    
 
 				  <h2><%= category.articles.last.title %></h2>
 				  <p><%= category.articles.last.text %></p>
-				  <%= link_to 'Read More',category_article_path(category,category.articles.last.category_id), class: "btn btn-default" %>
+				  <%= link_to 'Read More',category_article_path(category.articles.last.category_id,category.articles.last.id), class: "btn btn-default" %>
 				  </div>
-				<% end %>
+			    <% end %>
 			 <% end %>
 			
 
