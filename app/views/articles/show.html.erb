@@ -30,6 +30,7 @@
 	</div>
 	<% if author_signed_in? %>
     <p><%= link_to "Yazıyı Sil",category_article_path(@category,@article), :method => 'delete'%></p>
+    <p><%= link_to "düzenle",edit_category_article_path(@category,@article)%></p>
     <br>
     <%end%>
 </div>

@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="row">
+	 <%= form_for @article, html: { multipart: true } do |f| %>
+        <%= f.hidden_field :category_id, value: params[:category_id] %>
+		<p>
+			<%= f.label "Haber başlığı " %><br>
+			<%= f.text_field :title %>
+		</p>
+		<p>
+			<%= f.label "İçerik " %><br>
+			<%= f.text_area :text %>
+		</p>
+		<p>
+			<%= f.label "Fotoraf " %><br>
+			<%= f.file_field :image %>
+		</p>
+		<p>
+			<%= f.submit %>
+		</p>
+	<% end %>
+		
+	 <% if author_signed_in? %>
+		<p><%= link_to "Çıkış",destroy_author_session_path, :method => 'delete'%></p>
+		<br>
+	 <%end%>
+
+	</div>
+</div>

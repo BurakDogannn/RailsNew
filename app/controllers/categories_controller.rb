@@ -1,6 +1,12 @@
 class CategoriesController < ApplicationController
 	before_action :authenticate_author!, only: [:edit, :update, :destroy, :new,:show, :index]
 
+	def index
+		@categories = Category.all
+
+	end
+
+
 	def new
       @category = Category.new
       @category.articles.build #ne ise yarar bilmiyorum
@@ -13,11 +19,7 @@ class CategoriesController < ApplicationController
     redirect_to categories_path
     end
 
-	
-	def index
-		@categories = Category.all
 
-	end
 
 	def destroy
       @category = Category.find(params[:id])
