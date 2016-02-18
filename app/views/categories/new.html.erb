@@ -1,19 +1,20 @@
+
+
+
+
 <div class="container">
-	<%= form_for @category do |f| %>
-	<p>
-		<%= f.label "Kategori adı" %><br>
-		<%= f.text_field :name %>
-	</p>
-	<p>
-		<%= f.submit %>
-	</p>
-	<% end %>
-
-	<%= link_to "Kategorileri Listele", categories_path %>
-
-	<% if author_signed_in? %>
-	<p><%= link_to "Çıkış",destroy_author_session_path, :method => 'delete'%></p>
-	<br>
-	<%end%>
-
+	<div class="row">
+		<div class="form-group">
+			<%= form_for @category do |f| %>
+			<label >Kategori Adı:</label>
+			<%= f.text_field :name,class: "form-control" %>
+			<%= f.submit  %>
+			<%= link_to "Kategorileri Listele", categories_path, class: "btn btn-primary" %>
+			<% if author_signed_in? %>
+			<%= link_to "Çıkış",destroy_author_session_path, :method => 'delete'%>
+			<br>
+			<%end%>
+		<% end %>
+		</div>
+	</div>
 </div>
