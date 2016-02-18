@@ -4,13 +4,13 @@
 		<%=render'shared/navbar' %>
 		<div class="col-sm-6">
 			<div class="row">
-					<h1><strong><%= @category.name %> </strong></h1>
+				<h1><strong><%=@category.name %> </strong></h1>
 				<br>
 				
 				<%= image_tag @article.image.url(:large) , class: "demo" %>
 				<br>
 				<br>
-                <br>
+				<br>
 
 				<p>
 
@@ -23,15 +23,42 @@
 				</p>
 
 
+				<h2>Comments</h2>
+				<% @article.comments.each do |comment| %>
+				<p>
+					<strong>Commenter:</strong>
+					<%= comment.commenter %>
+				</p>
+
+				<p>
+					<strong>Comment:</strong>
+					<%= comment.body %>
+				</p>
+				<% end %>
+
+				<h2>Add a comment:</h2>
+				<%= form_for([@article, @article.comments.build]) do |f| %>
+				<p>
+					<%= f.label :commenter %><br>
+					<%= f.text_field :commenter %>
+				</p>
+				<p>
+					<%= f.label :body %><br>
+					<%= f.text_area :body %>
+				</p>
+				<p>
+					<%= f.submit %>
+				</p>
+				<% end %>
+
+
 			</div>
-
 		</div>
-
 	</div>
 	<% if author_signed_in? %>
-    <p><%= link_to "Yazıyı Sil",category_article_path(@category,@article), :method => 'delete'%></p>
-    <p><%= link_to "düzenle",edit_category_article_path(@category,@article)%></p>
-    <br>
-    <%end%>
+	<p><%= link_to "Yazıyı Sil",category_article_path(@category,@article), :method => 'delete'%></p>
+	<p><%= link_to "düzenle",edit_category_article_path(@category,@article)%></p>
+	<br>
+	<%end%>
 </div>
 <%=render'shared/footer' %>
