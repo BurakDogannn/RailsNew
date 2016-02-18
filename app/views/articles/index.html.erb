@@ -6,7 +6,7 @@
 				<div class="row">
 					<div class="panel panel-default">
 						<table class="table ">
-						  <% @articles.each do |article| %>
+						  <% @articles.order(id: :desc).each do |article| %>
 							<tr><td><strong><%= article.title %></strong></td></tr>
 							<tr><td>
 							  <div class="row">

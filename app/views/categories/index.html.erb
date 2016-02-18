@@ -1,39 +1,36 @@
+
+<%=render'shared/navbar' %>
+
+
 	<div class="container">
-
 		<div class="row">
-
 			<div class="col-md-12">
 				<div class="row">
+					<h1>Kategoriler</h1>
 					<div class="panel panel-default">
-						<table class="table ">
-							
+						<table class="table ">		
 							<% @categories.each do |category| %>
 							<tr><td><%= category.name %></td>
 							<td><%= link_to "Yazı Ekle", new_category_article_path(category) %>
 							</td>
 							<td><%= link_to "", new_category_article_path(category) %>
 							</td>
-
-
 							<td>
 							    <%= link_to "Kategori Sil", category_path(category), 
 							    :method => 'delete',
 							    data: {confirm: 'Bu kategori ve bu kategorilere ayit yazilari silmek istedinize emin misiniz' } %>
 							</td>		
 						    </tr>
-						
 						<% end %>
-					   </table>
+					</table>
 				</div>
 			</div>
-
 		</div>
-
 	</div>
     <%= link_to "Kategori Ekle", new_category_path %>
 	<% if author_signed_in? %>
     <p><%= link_to "Sign_out",destroy_author_session_path, :method => 'delete'%></p>
+    <p><%= link_to "Anasayfa",root_path%></p>
     <br>
     <%end%>
-
 </div>
