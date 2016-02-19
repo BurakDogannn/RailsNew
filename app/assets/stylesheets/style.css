@@ -99,11 +99,7 @@ footer p{
     }
 }
 
-#login{
-  
-	width: 50%;
-	margin-left: 20%;
-}
+
 #slider{
 	
 	width: 1100px;
@@ -119,7 +115,19 @@ footer p{
 	height:400px;
 	
 }
-#lb{  width:100%;
+/*#lb{  width:100%;
 	height:400px;}
+
 #deneme{height:400;}
-#row{height:300;}
+#row{height:300;}*/
+
+#login{
+  
+	width: 50%;
+	margin-left: 20%;
+	
+}
+.jumbotron{
+	width: 50%;
+	margin-top: 50px;
+	margin-left: 20%;}

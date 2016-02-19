@@ -6,8 +6,11 @@ class CommentsController < ApplicationController
 
  def create
     @article = Article.find(params[:article_id])
+    
+
     @comment = @article.comments.create(comment_params)
     redirect_to category_article_path(@article.category_id,@article.id)
+
   end
  
   private
