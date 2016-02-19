@@ -8,31 +8,34 @@ class CategoriesController < ApplicationController
 
 
 	def new
-      @category = Category.new
+		@category = Category.new
       @category.articles.build #ne ise yarar bilmiyorum
-	end
+  end
 
-	def create
-     @category = Category.new(category_params)
- 
-    @category.save
-    redirect_to categories_path
-    end
+  def create
+  	@category = Category.new(category_params)
+  	
+  	if @category.save
+  		redirect_to categories_path
 
-
-
-	def destroy
-      @category = Category.find(params[:id])
-
-      @category.destroy
-
-      redirect_to categories_path , notice:"Deleted was successfully"
-    end
-
-	
-	private
-    
-    def category_params
-     params.require(:category).permit(:name)
-    end
+  	else
+  		render 'new'
+  	end
 end
+
+
+  	def destroy
+  		@category = Category.find(params[:id])
+
+  		@category.destroy
+
+  		redirect_to categories_path , notice:"Deleted was successfully"
+  	end
+
+  	
+  	private
+  	
+  	def category_params
+  		params.require(:category).permit(:name)
+  	end
+  end
