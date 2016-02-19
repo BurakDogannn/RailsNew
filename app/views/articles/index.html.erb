@@ -5,20 +5,22 @@
 			<div class="col-md-12">
 				<div class="row">
 					<div class="panel panel-default">
+						<div class="col-md-12"></div>
 						<table class="table ">
 						  <% @articles.order(id: :desc).each do |article| %>
-							<tr><td><strong><%= article.title %></strong></td></tr>
+							<tr>
+								<td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong><%= article.title %></strong> -- <i><%= article.created_at.strftime("%Y-%m-%d")  %></i>   </td></tr>
 							<tr><td>
 							  <div class="row">
-								<div class="col-md-4">
+								<div class="col-md-3">
 									 
 					<%= link_to category_article_path(article.category_id,article) do %>
-						<%= image_tag article.image.url(:medium) %>
+						<%= image_tag article.image.url(:medium),class:"img-index" %>
 					<% end %>
 					
 					
 								 </div>
-									<div class="col-md-8"><%= article.text %></div>
+									<div class="col-md-9"><%= article.text %></div>
 								</div>
 							    </td>
 						   </tr>

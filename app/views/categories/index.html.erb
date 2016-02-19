@@ -1,7 +1,5 @@
 
 <%=render'shared/navbar' %>
-
-
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -28,9 +26,8 @@
 		</div>
 	</div>
     <%= link_to "Kategori Ekle", new_category_path %>
-	<% if author_signed_in? %>
-    <p><%= link_to "Sign_out",destroy_author_session_path, :method => 'delete'%></p>
+	
     <p><%= link_to "Anasayfa",root_path%></p>
     <br>
-    <%end%>
+   
 </div>

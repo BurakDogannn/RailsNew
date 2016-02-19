@@ -102,23 +102,24 @@ footer p{
 
 #slider{
 	
-	width: 1100px;
-	height: 400px;
-   
- 
+	width: 900px;
+	height: 320px; 
 }
+
 #photo{
 	margin: 0;
 	padding: 0;
-	
-    width:100%;
-	height:400px;
+    width:80%;
+	height:350px;
+	border:1px solid red ;
 	
 }
-/*#lb{  width:100%;
-	height:400px;}
+#lb{ /* grilik*/
+	width:100%;
+	height:350px;
+}
 
-#deneme{height:400;}
+/*#deneme{height:400;}
 #row{height:300;}*/
 
 #login{
@@ -131,3 +132,35 @@ footer p{
 	width: 50%;
 	margin-top: 50px;
 	margin-left: 20%;}
+
+.img-index{ padding:10px  40px 10px 40px;
+}
+.sign-out{
+	
+	margin-top: 13px;
+	margin-right: 10px;}
+	.sign-out-link{
+	 transition: color 0.5s ease; color:#fff;}
+	.sign-out-link:hover{text-decoration:none;
+		color:grey;}
+    .margin{ margin-top: 20px;margin-right: 15px;}
+
+     .dropdown{background-color: #2fa4e9;}
+     .dropdown:active{background-color: #2fa4e9;}
+    .admin-islem ul.ddm{
+    	width: 50px;
+    	padding: 0;
+    	margin:0;
+    	border: 1px solid green;
+    	
+    	}
+    	.admin-islem ul.ddm:hover,.admin-islem ul.ddm:active{
+    	background-color: #2fa4e7; /*#menu mavi*/
+    	border: 1px solid yellow;
+    	
+    	}
+    	/*.dropdown a:hover{
+    		border: 3px solid red;
+    	    background-color: #2fa4e7;
+            color:purple;
+    	}*/

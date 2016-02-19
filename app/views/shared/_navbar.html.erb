@@ -28,12 +28,28 @@
 					<% @categories.each do |category| %>
 					<li><%= link_to category.name ,category_articles_path(category)%></li>	
 					<% end %>
-					<li >
-                 <% if author_signed_in? %>
-                  <%= link_to "Sign_out",destroy_author_session_path, :method => 'delete'%>
-                 <% end %>
-					</li>
+					
 				</ul>
+				<!-- navbar dropdown -->
+				<ul >			
+					 <% if author_signed_in? %>
+					  <div id="navbar" class="admin-islem" >
+			            <ul class="nav navbar-nav navbar-right">
+							<li class="dropdown">
+					          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin İşlemleri <span class="caret"></span></a>
+					          <ul class="dropdown-menu" role="menu">
+					            <li><a href="#">Profilim</a></li>
+					            <li><a href="#">Şifre Değiştir</a></li>
+					            <li class="divider"></li>
+					            <li><%= link_to "Sign Out",destroy_author_session_path, :method => 'delete',class:"sign-out-link"%></li>
+					          </ul>
+		                  </li>
+		              </div>
+				  </div>
+					
+			    <!-- navbar dropdown END-->
+			     <% end %>
+
 			</div><!--/.nav-collapse -->
 		</div>
     </nav>
