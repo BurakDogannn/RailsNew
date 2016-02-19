@@ -12,6 +12,13 @@ class CommentsController < ApplicationController
     redirect_to category_article_path(@article.category_id,@article.id)
 
   end
+
+  def destroy
+  	@comment =Comment.find(params[:id])
+    @article = Article.find(params[:article_id])
+  	@comment.destroy
+  	redirect_to category_article_path(@article.category_id,@article.id)
+  end
  
   private
     def comment_params

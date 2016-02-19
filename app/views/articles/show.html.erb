@@ -1,5 +1,6 @@
-<div class="container">    <div class="row">
-        <%=render'shared/navbar' %>
+<div class="container">   
+ <div class="row">
+     <%=render'shared/navbar' %>
         <div class="col-sm-6">
             <div class="row">
                 <h1><strong><%=@category.name %> </strong></h1>
@@ -8,15 +9,27 @@
                 <%= image_tag @article.image.url(:large) , class: "demo" %>
                 <br>
                 <br>
-                <br>                <p>                    <strong><%= @article.title %></strong>
-                </p>                <p>
+                <br><p><strong><%= @article.title %></strong><br><i><%= @article.created_at.strftime("%Y-%m-%d")  %></i></p>               
+
+                <p>
                     <%= @article.text %>
-                </p>                <h2>Yorumlar</h2>
-                <% @article.comments.each do |comment| %>                <div class="well"><strong><%= comment.commenter %></strong>
+                </p>                
+                
+                <h2>Yorumlar</h2>
+               
+                <% @article.comments.each do |comment| %>                
+                <div class="well"><strong><%= comment.commenter %></strong>
                     <p>
                         <%= comment.body %>
                     </p>
-                </div>                <% end %>                <h2>Yorum ekle</h2>
+                    
+                    <% if author_signed_in? %>
+                    <%= link_to "Yorumu Sil",article_comment_path(comment.article_id,comment.id), :method => 'delete', class: "btn btn-danger"%>
+                    <% end %>
+                </div>                
+                <% end %>                
+
+                <h2>Yorum ekle</h2>
                 <%= form_for([@article, @article.comments.build]) do |f| %>
                  
                 <p>
