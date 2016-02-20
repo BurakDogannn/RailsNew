@@ -15,8 +15,8 @@
                     <%= @article.text %>
                 </p>                
                 
-                <h2>Yorumlar</h2>
-               
+                <!-- yorumları listele -->
+                <h2>Yorumlar</h2>               
                 <% @article.comments.each do |comment| %>                
                 <div class="well"><strong><%= comment.commenter %></strong>
                     <p>
@@ -27,11 +27,12 @@
                     <%= link_to "Yorumu Sil",article_comment_path(comment.article_id,comment.id), :method => 'delete', class: "btn btn-danger"%>
                     <% end %>
                 </div>                
-                <% end %>                
-
-                <h2>Yorum ekle</h2>
-                <%= form_for([@article, @article.comments.build]) do |f| %>
+                <% end %> 
+                <!-- yorumları listele -->               
                  
+                 <!-- yorum ekle -->
+                <h2>Yorum ekle</h2>
+                <%= form_for([@article, @article.comments.build]) do |f| %> 
                 <p>
                     <%= f.label "Yorum Başlığı" %><br>
                     <%= f.text_field :commenter %>
@@ -48,8 +49,11 @@
                     <br>
                     <%end%>
                 </p>
-                <% end %>            </div>
+                <% end %>    
+                <!-- yorum ekle -->
+
+           </div>
         </div>
     </div>
-    </div>
+</div>    <!-- container -->
 <%=render'shared/footer' %>
