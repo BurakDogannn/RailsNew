@@ -1,8 +1,18 @@
 <div class="container">
 	<div class="row">
+		<ul class="margin">
+			<li class="nav navbar-nav navbar-right">
+                 <% if author_signed_in? %>
+					<p><%= link_to "Çıkış",destroy_author_session_path, :method => 'delete', class: "btn btn-danger" %></p>
+					<br>
+				 <%end%>
+			</li>
+		</ul>
+	</div>
+	<div class="row">
 
-                  <!-- alanların şartlarının sorgulanması-->
-					
+        <div class="form-group">		
+        	<h2>HABER EKLE</h2>
 
 	 <%= form_for @article, html: { multipart: true } do |f| %>
 
@@ -19,26 +29,23 @@
 
         <%= f.hidden_field :category_id, value: params[:category_id] %>
 		<p>
-			<%= f.label "Haber başlığı " %><br>
-			<%= f.text_field :title %>
+			<label>Haber başlığı </label><br>
+			<%= f.text_field :title ,class: "form-control" %>
 		</p>
 		<p>
 			<%= f.label "İçerik " %><br>
-			<%= f.text_area :text %>
+			<%= f.text_area :text ,class: "form-control"  %>
 		</p>
 		<p>
 			<%= f.label "Fotoraf " %><br>
-			<%= f.file_field :image %>
+			<%= f.file_field :image  %>
 		</p>
 		<p>
-			<%= f.submit %>
+			<%= f.submit 'Haber Ekle' ,class: "btn btn-primary"%>
 		</p>
 	<% end %>
 		
-	 <% if author_signed_in? %>
-		<p><%= link_to "Çıkış",destroy_author_session_path, :method => 'delete'%></p>
-		<br>
-	 <%end%>
-
+	 
+</div>
 	</div>
 </div>

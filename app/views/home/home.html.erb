@@ -1,7 +1,6 @@
 
 <%=render'shared/navbar' %>
 
-
 <section >
 	<div class="container" id="slider" >
 		<div class="row" >
@@ -22,29 +21,36 @@
 						<div class="carousel-inner">
 							<% @articles.last(5).each_with_index do |article, index| %>
 							<% if index == 0 %>
+							
 							<div class="item active" id="deneme">
-							<%= link_to category_article_path(article.category_id,article.id) do %>
+								<%= link_to category_article_path(article.category_id,article.id) do %>
 								<%= image_tag article.image.url(:slider)%>
+								<% end %>
 									<div class="carousel-caption">
 										<h1><%= article.title %></h1>	
 								   </div>
-							 <% end %>
+							 
 							</div>
 							<% end %>
-							<% unless index == 0 %>
-							<div class="item">	
-							<%= link_to category_article_path(article.category_id,article.id) do %>	
+							
+
+                        <% unless index==0 %>
+							<div class="item">
+							<%= link_to category_article_path(article.category_id,article.id) do %>		
 								<%= image_tag article.image.url(:slider)%>
-								
+                                <% end %>
 								<div class="carousel-caption">
-										<h1><%= article.title %></h1>	
+										<h1><%= article.title %></h1>
 								</div>
-								   <% end %>
+								   
 							</div>
 							<% end %>
-							<% end %>
+						<% end %>
+
 						</div>
-					</div><!-- /.carousel -->
+
+					
+				</div><!-- /.carousel -->
 					<!-- Controls -->
 					<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
 						<span aria-hidden="true"></span>
@@ -54,11 +60,21 @@
 						<span  aria-hidden="true"></span>
 						<span class="sr-only">Next</span>
 					</a>
+
 				</div>
+
 			</div>
+			
 		</div>
 	</div>
+
+
 </section>
+
+
+
+
+
 
 
 <section id="middle">
@@ -74,6 +90,9 @@
 					<%= image_tag category.articles.last.image.url(:large) , class: "demo" %>
 			      <% end %>
 		
+
+                                   
+
 				  <h2><%= category.articles.last.title %></h2>
 				  <p><%= category.articles.last.text %></p>
 				  <%= link_to 'Read More',category_article_path(category.articles.last.category_id,category.articles.last.id), class: "btn btn-default" %>
@@ -90,8 +109,3 @@
 </section>
 
 <%=render'shared/footer' %>
-
-
-
-
-

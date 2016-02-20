@@ -1,10 +1,19 @@
-
-
-
-
 <div class="container">
 	<div class="row">
+		<ul class="margin">
+			<li class="nav navbar-nav navbar-right">
+                 <% if author_signed_in? %>
+					<p><%= link_to "Çıkış",destroy_author_session_path, :method => 'delete', class:"btn btn-danger" %></p>
+					<br>
+				 <%end%>
+			</li>
+		</ul>
+	</div>
+	<div class="row">
+		<%= link_to "Kategorileri Listele", categories_path %>
+
 		<div class="form-group">
+			
 			<%= form_for @category do |f| %>
 
 	          <% if @category.errors.any? %>
@@ -17,15 +26,12 @@
 						</ul>
 					</div>
 					<% end %>
-
+</br></br>
 			<label >Kategori Adı:</label>
-			<%= f.text_field :name,class: "form-control" %>
-			<%= f.submit  %>
-			<%= link_to "Kategorileri Listele", categories_path, class: "btn btn-primary" %>
-			<% if author_signed_in? %>
-			<%= link_to "Çıkış",destroy_author_session_path, :method => 'delete'%>
-			<br>
-			<%end%>
+			<%= f.text_field :name,class: "form-control" %></br>
+			<%= f.submit 'Kategori Ekle' ,class:"btn btn-primary"%>
+			
+			
 		<% end %>
 		</div>
 	</div>
