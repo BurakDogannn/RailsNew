@@ -1,0 +1,26 @@
+<div class="container">   
+ <div class="row">
+     <%=render'shared/navbar' %>
+        <div class="col-sm-6">
+            <div class="row">
+                <h1><strong><%= @authorprofile.first_name %> </strong></h1>
+                <br>
+                
+                <%= image_tag @authorprofile.avatar.url(:large) , class: "demo" %>
+                <br>
+                <br>
+                             
+
+                <p>
+                    <%= @authorprofile.last_name %>
+                </p>                
+                
+                           
+                 
+               <%= link_to "Profilimi Düzenle",edit_author_profile_path(@authorprofile), class: "btn btn-info" %>
+
+           </div>
+        </div>
+    </div>
+</div>    <!-- container -->
+<%=render'shared/footer' %>

@@ -1,0 +1,34 @@
+<div class="container">
+
+		<div class="row">
+			<%=render'shared/navbar' %>
+			<div class="col-md-12">
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="col-md-12"></div>
+						<table class="table ">
+						  <% @authorprofiles.each do |aprofile| %>
+							<tr>
+								<td><strong><%= aprofile.first_name %></strong> -- <i><%= aprofile.last_name  %></i>   </td></tr>
+							<tr><td>
+							  <div class="row">
+								<div class="col-md-3">
+									 
+					
+						<%= image_tag aprofile.avatar.url(:medium),class: "img-index" %>
+					
+					
+					
+								 </div>
+							
+								</div>
+							    </td>
+						   </tr>
+						<% end %>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<%=render'shared/footer' %>
