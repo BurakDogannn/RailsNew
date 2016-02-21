@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
     if @article.save
   redirect_to categories_path
    else
-   	render 'new'
+    redirect_to new_category_article_path(@article.category_id), notice: "hata oluştu"
    end
   end
 
@@ -55,7 +55,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:category_id,:title,:category, :text, :image)
+    params.require(:article).permit(:owner_id,:category_id,:title,:category, :text, :image)
   end
 
 end
