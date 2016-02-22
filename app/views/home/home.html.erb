@@ -67,9 +67,9 @@
                               <%= link_to category_article_path(category.articles.last.category_id,category.articles.last.id) do %>
                                 <%= image_tag category.articles.last.image.url(:large) , class: "new-image" %>
                               <% end %>
-
-                              <h2><%= category.articles.last.title %></h2>
-                              <p><%= category.articles.last.text %></p>
+                               <h4><%= category.articles.last.title%></h4>
+                                 <!-- yazının bir kısmını görmek için truncate -->
+                              <p><%= truncate category.articles.last.text, length: 50  %></p>
                               <%= link_to 'Read More',category_article_path(category.articles.last.category_id,category.articles.last.id), class: "btn btn-default" %>
                               </div>
                             <% end %><!-- if end -->

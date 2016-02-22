@@ -2,21 +2,17 @@
 
  <div class="panel panel-default m-b-md hidden-xs">
    <div class="panel-body">
-     <h5 class="m-t-0">Haberler</h5>
-     <div data-grid="images" data-target-height="150">
-       <img class="media-object" data-width="640" data-height="640" data-action="zoom" src="/assets/app-theme/instagram_2.jpg">
-     </div>
-     <p><strong>It might be time to visit Iceland.</strong> Iceland is so chill, and everything looks cool here. Also, we heard the people are pretty nice. What are you waiting for?</p>
-     It might be time to visit Iceland.</strong> Iceland is so chill, and everything looks cool here. Also, we heard the people are pretty nice. What are you waiting for?</p>
-     It might be time to visit Iceland.</strong> Iceland is so chill, and everything looks cool here. Also, we heard the people are pretty nice. What are you waiting for?</p>
-     It might be time to visit Iceland.</strong> Iceland is so chill, and everything looks cool here. Also, we heard the people are pretty nice. What are you waiting for?</p>
-     It might be time to visit Iceland.</strong> Iceland is so chill, and everything looks cool here. Also, we heard the people are pretty nice. What are you waiting for?</p>
-     It might be time to visit Iceland.</strong> Iceland is so chill, and everything looks cool here. Also, we heard the people are pretty nice. What are you waiting for?</p>
-     It might be time to visit Iceland.</strong> Iceland is so chill, and everything looks cool here. Also, we heard the people are pretty nice. What are you waiting for?</p>
-     It might be time to visit Iceland.</strong> Iceland is so chill, and everything looks cool here. Also, we heard the people are pretty nice. What are you waiting for?</p>
-     
-
-     <button class="btn btn-primary-outline btn-sm">Buy a ticket</button>
+     <h5 class="m-t-0">yazarlar</h5>
+     <% @authors.each do |author| %>
+       <% article = @articles.where(owner_id:author.id).last %>
+     	<% aprofile = @authorprofile.find_by(author_id:author.id) %>
+     	  <% unless article == nil %>	  
+              <%= image_tag aprofile.avatar.url(:avatar)%> 
+              <strong> <%= article.title %></strong> 
+              <p><%= truncate article.text, lenght: 30 %></p>
+              <%= link_to 'Read More',category_article_path(article.category_id,article.id), class: "btn btn-primary-outline btn-sm" %> <br>
+          <% end %> <!-- unless end -->
+     <% end %>
    </div>
  </div>
 
