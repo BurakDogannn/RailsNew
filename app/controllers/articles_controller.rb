@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   def index
   	@categories =Category.all #navbar için eklendi
   	@articles = Article.where(category_id: params[:category_id])
-    
+   
    
   end
 

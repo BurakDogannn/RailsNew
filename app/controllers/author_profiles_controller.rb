@@ -1,5 +1,5 @@
 class AuthorProfilesController < ApplicationController
-   before_action :authenticate_author!
+   before_action :authenticate_author! , except: [:index]
    before_action :set_categories , only: [:index, :new, :show, :edit]
 	
 	def index

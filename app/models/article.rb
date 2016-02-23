@@ -8,4 +8,7 @@ class Article < ActiveRecord::Base
 
 has_attached_file :image, styles: { large: "350x350>", medium: "200x200>", thumb: "150x150>" ,slider: "950x350#"}
 validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
+
+
 end

@@ -1,46 +1,23 @@
 <div class="col-md-12">
 
- <div class="panel panel-default m-b-md hidden-xs">
-   <div class="panel-body">
-     <h5 class="m-t-0">yazarlar</h5>
-     <% @authors.each do |author| %>
-       <% article = @articles.where(owner_id:author.id).last %>
-     	<% aprofile = @authorprofile.find_by(author_id:author.id) %>
-     	  <% unless article == nil %>	  
-              <%= image_tag aprofile.avatar.url(:avatar)%> 
-              <strong> <%= article.title %></strong> 
-              <p><%= truncate article.text, lenght: 30 %></p>
-              <%= link_to 'Read More',category_article_path(article.category_id,article.id), class: "btn btn-primary-outline btn-sm" %> <br>
+<div class="panel panel-default m-b-md hidden-xs">
+  <div class="panel-body">
+    <h5 class="m-t-0">YAZARLAR</h5>
+
+    <% @authors.each do |author| %>
+    <hr>
+      <% article = @articles.where(owner_id:author.id).last %>
+        <% aprofile = @authorprofile.find_by(author_id:author.id) %>
+          <% unless article == nil %>
+           
+             <%= image_tag aprofile.avatar.url(:avatar), class: "img-circle"%> 
+             <strong><%= aprofile.first_name%> <%= aprofile.last_name%> </strong> 
+              <h3><%= link_to article.title,category_article_path(article.category_id,article.id), class: "btn btn-primary-outline btn-md" %></h3>
+             <p><%#= truncate article.text, lenght: 30 %></p>
           <% end %> <!-- unless end -->
-     <% end %>
-   </div>
- </div>
+    <% end %>
+  
+  </div>
 
- <div class="panel panel-default m-b-md hidden-xs">
-   <div class="panel-body">
-        <h5 class="m-t-0">Beğeniler <small>· <a href="#">Tümü</a></small></h5>
-        <ul class="media-list media-list-stream">
-          <li class="media m-b">
-            <a class="media-left" href="#">
-              <img class="media-object img-circle" src="/assets/app-theme/avatar-fat.jpg">
-            </a>
-            
-          </li>
-           <li class="media">
-            <a class="media-left" href="#">
-              <img
-                class="media-object img-circle"
-                src="/assets/app-theme/avatar-mdo.png">
-            </a>
-            <div class="media-body">
-              
-                
-              </div>
-            </div>
-          </li>
-        </ul>
-   </div>
  </div>
-
- 
 </div>
