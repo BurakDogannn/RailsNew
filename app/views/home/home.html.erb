@@ -1,10 +1,9 @@
 
 <%=render'shared/navbar' %>
 
-<section >
     <div class="container" id="slider" >
         <div class="row" >
-            <div class="col-md-9" id="photo">
+            <div class="col-md-9" >
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="20000">
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
@@ -16,7 +15,7 @@
                     </ol>
 
                     <!-- carousel for slides -->
-                    <div class="carousel-inner" role="listbox" id="lb">
+                    <div class="carousel-inner" role="listbox">
                         <div class="carousel-inner">
                             <% @articles.last(5).each_with_index do |article, index| %>
                                 <% if index == 0 %>
@@ -56,12 +55,14 @@
                     
                 </div>
 
-                   <section id="middle">
-                        <div class="row">
+               
+                       <div class="row">
+                       	
                          <% @categories.each do |category| %>
                              
                            <% if category.articles.any? %>
-                              <div class="col-md-4">
+                               <div class="col-md-4">
+                              
                               <h1><%= category.name %></h1>                    
                              
                               <%= link_to category_article_path(category.articles.last.category_id,category.articles.last.id) do %>
@@ -71,11 +72,14 @@
                                  <!-- yazının bir kısmını görmek için truncate -->
                               <p><%= truncate category.articles.last.text, length: 50  %></p>
                               <%= link_to 'Read More',category_article_path(category.articles.last.category_id,category.articles.last.id), class: "btn btn-default" %>
-                              </div>
+                              
+                               </div>
                             <% end %><!-- if end -->
-                         <% end %>  <!-- each end --> 
-                    </div>
-              </section>  <!-- middle -->
+
+                         <% end %>  <!-- each end -->
+
+                         </div>
+             
            
             </div>    <!-- col-md-9 end -->
 
@@ -86,7 +90,7 @@
     </div>
     </div>
     
-</section>
+
 
 
 <%=render'shared/footer' %>
